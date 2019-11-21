@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     end
 
     patch "/posts/:id" do
-        @post = Post.find_by(params[:id])
+        @post = Post.find_by(id: params[:id])
         if @post.update(title: params[:title], body: params[:body])
             redirect "/posts/#{@post.id}"
         else
